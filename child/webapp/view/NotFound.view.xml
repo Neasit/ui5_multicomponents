@@ -1,5 +1,5 @@
 <mvc:View
-  controllerName="app.example.controller.NotFound"
+  controllerName="app.child.controller.NotFound"
   xmlns:mvc="sap.ui.core.mvc"
   xmlns="sap.m"
 >

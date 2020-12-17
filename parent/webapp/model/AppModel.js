@@ -21,6 +21,8 @@ sap.ui.define(['sap/ui/model/json/JSONModel'], function(JSONModel) {
         navigationItems: [
           {
             key: 'StartPage',
+            route: 'StartPage',
+            arguments: {},
             title: this.oi18n.getText('welcome'),
             icon: 'sap-icon://building',
             enabled: true,
@@ -30,12 +32,21 @@ sap.ui.define(['sap/ui/model/json/JSONModel'], function(JSONModel) {
           {
             key: 'Child',
             title: this.oi18n.getText('child'),
+            route: 'Child',
+            arguments: {
+              page: 'Main',
+            },
             icon: 'sap-icon://employee',
             enabled: true,
             expanded: true,
             items: [
               {
                 key: 'ChildDetails',
+                route: 'Child',
+                arguments: {
+                  page: 'Details',
+                  number: 1000,
+                },
                 title: this.oi18n.getText('childDetails'),
                 icon: 'sap-icon://account',
                 enabled: true,

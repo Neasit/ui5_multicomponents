@@ -1,5 +1,5 @@
 <mvc:View
-  controllerName="app.child.controller.StartPage"
+  controllerName="app.child.controller.Details"
   xmlns="sap.m"
   xmlns:mvc="sap.ui.core.mvc"
   xmlns:sf="sap.f"
@@ -14,14 +14,14 @@
     <sf:title>
       <sf:DynamicPageTitle primaryArea="Middle">
         <sf:heading>
-          <Title text="Example application" />
+          <Title text="Example application: Details" />
         </sf:heading>
-        <sf:actions>
+        <sf:navigationActions>
           <Button
-            text="Go to details"
-            press="onDetails"
+            text="Back"
+            press="onBack"
           />
-         </sf:actions>
+        </sf:navigationActions>
       </sf:DynamicPageTitle>
     </sf:title>
     <sf:header>

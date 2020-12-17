@@ -1,7 +1,7 @@
-sap.ui.define(['app/example/controller/BaseController'], function(BaseController) {
+sap.ui.define(['app/child/controller/BaseController'], function(BaseController) {
   'use strict';
 
-  return BaseController.extend('app.example.controller.NotFound', {
+  return BaseController.extend('app.child.controller.NotFound', {
     /**
      * Navigates to the masterPR when the link is pressed
      * @public

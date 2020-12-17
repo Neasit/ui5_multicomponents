@@ -23,6 +23,11 @@ server:
       mountPath: /resources
       configuration:
         rootPath: "C:/SAPUI5/1.71.5/resources"
+    - name: ui5-middleware-servestatic
+      afterMiddleware: compression
+      mountPath: /resources/app/child
+      configuration:
+        rootPath: "../child/webapp"
     - name: ui5-middleware-proxy
       afterMiddleware: compression
       mountPath: /sap

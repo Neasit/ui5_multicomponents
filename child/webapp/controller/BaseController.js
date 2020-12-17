@@ -1,7 +1,7 @@
-sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/m/MessageToast', 'app/example/model/formatter'], function(Controller, MessageToast, formatter) {
+sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/m/MessageToast', 'app/child/model/formatter'], function(Controller, MessageToast, formatter) {
   'use strict';
 
-  return Controller.extend('app.example.controller.BaseController', {
+  return Controller.extend('app.child.controller.BaseController', {
     formatter: formatter,
 
     /**
@@ -76,20 +76,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/m/MessageToast', 'app/example/
      * @param {Boolean} replace history or not (default: true)
      * @returns null
      */
-    goToPage: function(pageName, oParams, bReplace) {
-      var parentChild = this.navProps || {};
-      var resultParams = {};
-      oParams = oParams || {};
-
-      for (var key in parentChild) {
-        resultParams[key] = parentChild[key];
-      }
-
-      for (key in oParams) {
-        resultParams[key] = oParams[key];
-      }
-
-      this.oRouter.navTo(pageName, oParams, !!bReplace);
+    goToPage: function(pageName, oParams = {}, bReplace = false) {
+      this.oRouter.navTo(pageName, this.getOwnerComponent().createRouteArguments(oParams), !!bReplace);
     },
 
     /** Show message toast with predefined parameters

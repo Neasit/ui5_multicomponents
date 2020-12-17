@@ -1,31 +1,15 @@
 {
-	"_version": "1.17.0",
-	"start_url": "index.html",
-
+	"_version": "1.5.0",
 	"sap.app": {
-		"id": "app.example",
+		"id": "app.child",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
 			"version": "${version}"
 		},
 		"title": "{{appTitle}}",
-		"subTitle": "{{subTitle}}",
-		"shortTitle": "{{shorttitle}}",
-		"description": "{{description}}",
-		"info": "{{info}}",
-		"tags": {
-			"keywords": ["Example"]
-		},
+		"description": "{{appDescription}}",
 		"dataSources": {
-			"localService": {
-				"uri": "/mock/",
-				"type": "OData",
-				"settings": {
-					"odataVersion": "2.0",
-					"localUri": "localService/metadata.xml"
-				}
-			},
 			"oDataMain": {
 				"uri": "/sap/opu/odata/sap/SERVER/",
 				"type": "OData",
@@ -33,11 +17,6 @@
 					"odataVersion": "2.0"
 				}
 			}
-		},
-		"resources": "resources.json",
-		"offline": true,
-		"destination": {
-			"name": "SAP_ERP"
 		}
 	},
 	"sap.ui": {
@@ -58,13 +37,13 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "app.example.view.App",
+			"viewName": "app.child.view.App",
 			"async": true,
 			"id": "web4al",
 			"type": "XML"
 		},
 		"dependencies": {
-			"minUI5Version": "1.66.0",
+			"minUI5Version": "1.52.0",
 			"libs": {
 				"sap.ui.core": {},
 				"sap.m": {},
@@ -83,7 +62,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "app.example.i18n.i18n"
+					"bundleName": "app.child.i18n.i18n"
 				}
 			},
 			"": {
@@ -106,8 +85,8 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "app.example.view",
-				"controlId": "appexample",
+				"viewPath": "app.child.view",
+				"controlId": "child",
 				"controlAggregation": "pages",
 				"bypassed": {
 					"target": "notFound"
@@ -118,7 +97,14 @@
 				{
 					"pattern": "",
 					"name": "StartPage",
-					"target": "StartPage"
+					"target": "StartPage",
+					"parent": "app.parent.Component:Child"
+				},
+				{
+					"pattern": "details/:number:",
+					"name": "Details",
+					"target": "Details",
+					"parent": "app.parent.Component:Child"
 				}
 			],
 			"targets": {
@@ -126,15 +112,15 @@
 					"viewName": "StartPage",
 					"viewId": "StartPage"
 				},
+				"Details": {
+					"viewName": "Details",
+					"viewId": "Details"
+				},
 				"notFound": {
 					"viewName": "NotFound",
 					"viewId": "notFound"
 				}
 			}
 		}
-	},
-	"sap.platform.abap": {
-		"uri": "",
-		"uriNwbc": ""
 	}
 }

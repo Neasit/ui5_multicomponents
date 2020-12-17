@@ -17,7 +17,7 @@ sap.ui.define(['app/parent/controller/BaseController'], function(BaseController)
         var oBindingContext = oItem.getBindingContext('appModel');
         var oObject = oBindingContext ? oBindingContext.getObject() : null;
         if (oObject) {
-          this.goToPage(oObject.key);
+          this.goToPage(oObject.route, oObject.arguments );
           this.oAppModel.setCurrentPosition(oObject.key);
         }
       }

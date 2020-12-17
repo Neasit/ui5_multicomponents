@@ -1,7 +1,7 @@
-sap.ui.define(['app/example/controller/BaseController'], function(BaseController) {
+sap.ui.define(['app/child/controller/BaseController'], function(BaseController) {
   'use strict';
 
-  return BaseController.extend('app.example.controller.App', {
+  return BaseController.extend('app.child.controller.App', {
     onInit: function() {},
   });
 });
