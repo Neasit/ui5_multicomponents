@@ -9,6 +9,13 @@ sap.ui.define(['sap/ui/core/UIComponent'], function(UIComponent) {
         showDetails: { type: 'boolean', defaultValue: false },
         parentArguments: { type: 'object', defaultValue: {} },
       },
+      events: {
+        insideNavigation: {
+          parameters: {
+            name: { type: 'string' },
+          },
+        },
+      },
     },
 
     /**

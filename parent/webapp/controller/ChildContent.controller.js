@@ -21,8 +21,12 @@ sap.ui.define(['app/parent/controller/BaseController'], function(BaseController)
         .catch(error => {
           this.showMessage(error && error.message ? error.message : 'JS Error: Create child component');
           this.getView().setBusy(false);
-          // this.goToPage();
         });
+    },
+
+    onInsideNavigation: function(oEvent) {
+      const sName = oEvent.getParameter('name');
+      this.oAppModel.setCurrentPosition(sName === 'Main' ? 'Child' : 'ChildDetails');
     },
 
     getChildComponent: function(oArguments) {
@@ -38,6 +42,7 @@ sap.ui.define(['app/parent/controller/BaseController'], function(BaseController)
                 .component(oParameters)
                 .then(
                   function(oComponent) {
+                    oComponent.attachInsideNavigation(this.onInsideNavigation, this);
                     this.oChildComponents[oParameters.name] = oComponent;
                     resolve(oComponent);
                   }.bind(this)

@@ -11,6 +11,7 @@ sap.ui.define(['app/child/controller/BaseController'], function(BaseController) 
 
     onBack: function() {
       this.goToPage('StartPage');
+      this.getOwnerComponent().fireInsideNavigation({ name: 'Main' });
     },
   });
 });

@@ -7,12 +7,11 @@ sap.ui.define(['app/child/controller/BaseController'], function(BaseController) 
       this.oRouter.getRoute('StartPage').attachPatternMatched(this.handleRouteMatched, this);
     },
 
-    handleRouteMatched: function(oEvent) {
-
-    },
+    handleRouteMatched: function(oEvent) {},
 
     onDetails: function() {
       this.goToPage('Details');
+      this.getOwnerComponent().fireInsideNavigation({ name: 'Details' });
     },
   });
 });
