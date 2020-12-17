@@ -8,25 +8,27 @@
 
     <script
       id="sap-ui-bootstrap"
-      src="/resources/sap-ui-core.js"
-      data-sap-ui-theme="sap_belize"
+      src="resources/sap-ui-core.js"
       data-sap-ui-libs="sap.m"
+      data-sap-ui-theme="sap_belize"
       data-sap-ui-compatVersion="edge"
-      data-sap-ui-async="true"
-      data-sap-ui-frameOptions="trusted"
-      data-sap-ui-onInit="module:sap/ui/core/ComponentSupport"
-      data-sap-ui-resourceroots='{"app.parent": "./"}'
+      data-sap-ui-preload="async"
+      data-sap-ui-resourceroots='{"app.parent": ""}'
     ></script>
-
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script>
+      sap.ui.getCore().attachInit(function() {
+        sap.ui.require(['sap/m/Shell', 'sap/ui/core/ComponentContainer'], function(Shell, ComponentContainer) {
+          new Shell({
+            app: new ComponentContainer({
+              height: '100%',
+              name: 'app.parent',
+            }),
+          }).placeAt('content');
+        });
+      });
+    </script>
   </head>
 
-  <body class="sapUiBody">
-    <div
-      data-sap-ui-component
-      data-name="app.parent"
-      data-id="container"
-      data-settings='{"id": "parent"}'
-    ></div>
-  </body>
+  <body class="sapUiBody" id="content"></body>
 </html>

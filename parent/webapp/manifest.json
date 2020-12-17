@@ -1,7 +1,5 @@
 {
-	"_version": "1.17.0",
-	"start_url": "index.html",
-
+	"_version": "1.5.0",
 	"sap.app": {
 		"id": "app.parent",
 		"type": "application",
@@ -10,19 +8,8 @@
 			"version": "${version}"
 		},
 		"title": "{{appTitle}}",
-		"subTitle": "{{subTitle}}",
-		"shortTitle": "{{shorttitle}}",
-		"description": "{{description}}",
-		"info": "{{info}}",
+		"description": "{{appDescription}}",
 		"dataSources": {
-			"localService": {
-				"uri": "/mock/",
-				"type": "OData",
-				"settings": {
-					"odataVersion": "2.0",
-					"localUri": "localService/metadata.xml"
-				}
-			},
 			"oDataMain": {
 				"uri": "/sap/opu/odata/sap/SERVER/",
 				"type": "OData",
@@ -30,11 +17,6 @@
 					"odataVersion": "2.0"
 				}
 			}
-		},
-		"resources": "resources.json",
-		"offline": true,
-		"destination": {
-			"name": "SAP_ERP"
 		}
 	},
 	"sap.ui": {
@@ -70,6 +52,11 @@
 				"sap.f": {},
 				"sap.ui.comp": {},
 				"sap.tnt": {}
+			},
+			"components": {
+				"app.child": {
+					"lazy": true
+				}
 			}
 		},
 		"contentDensities": {
@@ -116,6 +103,11 @@
 					"pattern": "",
 					"name": "StartPage",
 					"target": "StartPage"
+				},
+				{
+					"pattern": "child/{page}",
+					"name": "Child",
+					"target": "Child"
 				}
 			],
 			"targets": {
@@ -123,15 +115,15 @@
 					"viewName": "StartPage",
 					"viewId": "StartPage"
 				},
+				"Child": {
+					"viewName": "ChildContent",
+					"viewId": "ChildContent"
+				},
 				"notFound": {
 					"viewName": "NotFound",
 					"viewId": "notFound"
 				}
 			}
 		}
-	},
-	"sap.platform.abap": {
-		"uri": "",
-		"uriNwbc": ""
 	}
 }
