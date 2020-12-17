@@ -7,7 +7,7 @@ sap.ui.define(['app/child/controller/BaseController'], function(BaseController) 
      * @public
      */
     onLinkPressed: function() {
-      this.getRouter().navTo('StartPage');
+      this.getRouter().navTo('StartPage', { page: 'Main' });
     },
   });
 });
