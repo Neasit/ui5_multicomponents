@@ -1,0 +1,30 @@
+<mvc:View
+  controllerName="app.example.controller.StartPage"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:sf="sap.f"
+  xmlns:fb="sap.ui.comp.filterbar"
+  height="100%"
+  width="100%"
+>
+  <sf:DynamicPage
+    showFooter="true"
+    class="sapUiNoContentPadding customDynamicPage"
+  >
+    <sf:title>
+      <sf:DynamicPageTitle primaryArea="Middle">
+        <sf:heading>
+          <Title text="Example application" />
+        </sf:heading>
+      </sf:DynamicPageTitle>
+    </sf:title>
+    <sf:header>
+    </sf:header>
+    <sf:content>
+
+    </sf:content>
+    <sf:footer>
+
+    </sf:footer>
+  </sf:DynamicPage>
+</mvc:View>

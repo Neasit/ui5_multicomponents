@@ -1,0 +1,900 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"res",
+				"resultKLSDialog"
+			],
+			[
+				"getC",
+				"getCurrentASP"
+			],
+			[
+				"getP",
+				"getPath"
+			],
+			[
+				"oB",
+				"oBindingContext"
+			],
+			[
+				"getB",
+				"getBindingContext"
+			],
+			[
+				"getS",
+				"getSource"
+			],
+			[
+				"oE",
+				"oEvent"
+			],
+			[
+				"oe",
+				"oError"
+			],
+			[
+				"getBi",
+				"getBinding"
+			],
+			[
+				"ASP",
+				"ASPNR"
+			],
+			[
+				"undb",
+				"unbindElement"
+			],
+			[
+				"oO",
+				"oObject"
+			],
+			[
+				"getBind",
+				"getBindingContext"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"oM",
+				"oMessagePresenter"
+			],
+			[
+				"key",
+				"keys"
+			],
+			[
+				"delete",
+				"deleted"
+			],
+			[
+				"Stand",
+				"Standort"
+			],
+			[
+				"b",
+				"bind"
+			],
+			[
+				"th",
+				"this"
+			],
+			[
+				"ch",
+				"checkStandort"
+			],
+			[
+				"Sta",
+				"StandOrtDetails.view.xml"
+			],
+			[
+				"l",
+				"length"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"let",
+				"let"
+			],
+			[
+				"oF",
+				"oFilterModel"
+			],
+			[
+				"pr",
+				"properties"
+			],
+			[
+				"Pf",
+				"Postfach"
+			],
+			[
+				"Ha",
+				"Hausnummernzusatz"
+			],
+			[
+				"El",
+				"ELFE-Adresse"
+			],
+			[
+				"cur",
+				"currentPage"
+			],
+			[
+				"de",
+				"delete"
+			],
+			[
+				"T",
+				"TKKUNNR"
+			],
+			[
+				"err",
+				"error"
+			],
+			[
+				"v",
+				"visible"
+			],
+			[
+				"ar",
+				"arguments"
+			],
+			[
+				"bi",
+				"bindElement"
+			],
+			[
+				"oR",
+				"oReguliererReuse"
+			],
+			[
+				"oRes",
+				"oResponse"
+			],
+			[
+				"oMa",
+				"oMainModel"
+			],
+			[
+				"Mess",
+				"MessageBox"
+			],
+			[
+				"show",
+				"show"
+			],
+			[
+				"co",
+				"column"
+			],
+			[
+				"sT",
+				"sType"
+			],
+			[
+				"re",
+				"reject"
+			],
+			[
+				"col",
+				"columns"
+			],
+			[
+				"open",
+				"open"
+			],
+			[
+				"M",
+				"MESSAGE"
+			],
+			[
+				"BA",
+				"BANK_ORT"
+			],
+			[
+				"op",
+				"operator"
+			],
+			[
+				"Ob",
+				"Object"
+			],
+			[
+				"_oS",
+				"_oSelectDialogModel"
+			],
+			[
+				"get",
+				"get\tGet Elements"
+			],
+			[
+				"for",
+				"forEach"
+			],
+			[
+				"mess",
+				"oMessagePresenter"
+			],
+			[
+				"cret",
+				"createFKTO"
+			],
+			[
+				"ini",
+				"initialize"
+			],
+			[
+				"Mes",
+				"Message"
+			],
+			[
+				"pa",
+				"param\t@param"
+			],
+			[
+				"val",
+				"value1"
+			],
+			[
+				"sP",
+				"sPart"
+			],
+			[
+				"sS",
+				"sSetName"
+			],
+			[
+				"sV",
+				"sValueKey"
+			],
+			[
+				"sK",
+				"sKey"
+			],
+			[
+				"V",
+				"VKBUR"
+			],
+			[
+				"stat",
+				"statusCode"
+			],
+			[
+				"o",
+				"oParameters"
+			],
+			[
+				"tie",
+				"timestamp"
+			],
+			[
+				"oC",
+				"oComponent"
+			],
+			[
+				"pre",
+				"preventTableBind"
+			],
+			[
+				"messa",
+				"message"
+			],
+			[
+				"getLog",
+				"getLogDialog"
+			],
+			[
+				"oPa",
+				"oParams"
+			],
+			[
+				"ti",
+				"title"
+			],
+			[
+				"getM",
+				"getMessagePopup"
+			],
+			[
+				"oMe",
+				"oMessagesDialog"
+			],
+			[
+				"getLo",
+				"getLogPopover"
+			],
+			[
+				"pro",
+				"processed"
+			],
+			[
+				"en",
+				"envResult"
+			],
+			[
+				"t",
+				"this"
+			],
+			[
+				"FA",
+				"FAKTNL"
+			],
+			[
+				"oD",
+				"oDefaultFilter"
+			],
+			[
+				"aF",
+				"aFilters"
+			],
+			[
+				"oi",
+				"oi18n"
+			],
+			[
+				"getContex",
+				"getBindingContext"
+			],
+			[
+				"sele",
+				"selectedKey"
+			],
+			[
+				"bin",
+				"bindElement"
+			],
+			[
+				"ed",
+				"editable"
+			],
+			[
+				"bind",
+				"bind"
+			],
+			[
+				"Too",
+				"ToolbarSpacer"
+			],
+			[
+				"i",
+				"interval"
+			],
+			[
+				"Te",
+				"Telekomkunde"
+			],
+			[
+				"e",
+				"editable"
+			],
+			[
+				"com",
+				"componentData"
+			],
+			[
+				"getO",
+				"getOwnerComponent"
+			],
+			[
+				"s",
+				"showMessage"
+			],
+			[
+				"save",
+				"saveFilterState"
+			],
+			[
+				"cle",
+				"clearMainFilters"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"getVi",
+				"getVizProperty"
+			],
+			[
+				"getV",
+				"getVizProperty"
+			],
+			[
+				"ps",
+				"push"
+			],
+			[
+				"ite",
+				"item"
+			],
+			[
+				"web",
+				"webapp"
+			],
+			[
+				"xm",
+				"xmlns"
+			],
+			[
+				"tr",
+				"true"
+			],
+			[
+				"sta",
+				"stack"
+			],
+			[
+				"oRs",
+				"oResult"
+			],
+			[
+				"requ",
+				"require"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pus",
+				"Git: Push Current Branch"
+			],
+			[
+				"comm",
+				"Git: Commit"
+			],
+			[
+				"add",
+				"Git: Add All"
+			],
+			[
+				"stat",
+				"Git: Status"
+			],
+			[
+				"che",
+				"Git: Checkout Current File"
+			],
+			[
+				"chec",
+				"Git: Checkout Current File"
+			],
+			[
+				"com",
+				"Git: Commit"
+			],
+			[
+				"push",
+				"Git: Push Current Branch"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"pull",
+				"Git: Pull Current Branch"
+			],
+			[
+				"pul",
+				"Git: Pull Current Branch"
+			],
+			[
+				"pull ",
+				"Git: Pull Current Branch"
+			],
+			[
+				"pu",
+				"Git: Pull"
+			],
+			[
+				"co",
+				"Git: Commit"
+			],
+			[
+				"ch",
+				"Git: Checkout Tag"
+			],
+			[
+				"ad",
+				"Git: Add All"
+			],
+			[
+				"git pull",
+				"Git: Pull Current Branch"
+			],
+			[
+				"cha",
+				"Git: Change Branch"
+			],
+			[
+				"ame",
+				"Git: Amend Commit"
+			],
+			[
+				"chan",
+				"Git: Change Branch"
+			],
+			[
+				"reset",
+				"Git: Reset (unstage) All"
+			],
+			[
+				"mer",
+				"Git: Merge Branch"
+			],
+			[
+				"log",
+				"Git: Log All"
+			],
+			[
+				"git",
+				"Git: Status"
+			],
+			[
+				"fet",
+				"Git: Fetch"
+			],
+			[
+				"git c",
+				"Git: Push Current Branch"
+			],
+			[
+				"git add ",
+				"Git: Add All"
+			],
+			[
+				"git sta",
+				"Git: Status"
+			],
+			[
+				"qu",
+				"Git: Quick Commit (repo)"
+			],
+			[
+				"Package Control: Li",
+				"Package Control: List Packages"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents"
+	],
+	"file_history":
+	[
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/modules/SearchHelpDialog.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/controller/StandOrtDetails.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/controller/StandOrtList.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/fragments/SearchHelpDialog.fragment.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/package.json",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/view/StartPage.view.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/webapp/manifest.json",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/manifest.json",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/Component.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/webapp/Component.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/.gitignore",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/view/StandOrtDetails.view.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/controller/Regulierer.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/view/Regulierer.view.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/view/BankDaten.view.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/i18n/i18n.properties",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/model/KundeModel.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/controller/BankDaten.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/modules/oDataServices.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/modules/ErrorHandler.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/modules/MessagePresenter.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/controller/BaseController.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/css/style.css",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/model/formatter.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/view/StandOrtList.view.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/utils/StandortReuse.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/Readme.md",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/utils/ReguliererReuse.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/utils/SHFactories.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/controller/StartPage.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/model/FilterModel.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/view/KundeDetailsPage.view.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/Gruntfile.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/webapp/model/AppModel.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/webapp/i18n/i18n.properties",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/user/webapp/controller/StartPage.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/user/webapp/Component.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/webapp/controller/App.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/ui5.yaml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/utils/ColumnsFactory.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/user/webapp/view/StartPage.view.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/dist/Component-preload.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/utils/Utils.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/modules/SelectDialog.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/test/utils/Utils.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/modules/utils.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/fragments/selectDialog.fragment.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/messagebundle.properties",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/library.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/controller/KundeDetailsPage.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/utils/SelectDialog.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/view/fragments/selectDialog.fragment.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/lib/AgreementSH.fragment.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/modules/Logger.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/modules/Message.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/.gitignore",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/test/Component.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/webapp/view/App.view.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/webapp/controller/BaseController.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/test/manifest.json",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/prettier.config.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/ui5.yaml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/controls/HTMLoDataMessageParser.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/test/controller/StartPage.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/Readme.md",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/ui5.yaml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/package.json",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/Readme.md",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/test/controller/App.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/test/main.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/Gruntfile.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/test/controller/NotFound.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/test/index.html",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/test/view/StartPage.view.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/test/model/UserModel.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/test/controller/BaseController.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/test/view/App.view.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/test/view/NotFound.view.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/webapp/model/models.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/index.html",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/webapp/index.html",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/view/NotFound.view.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/.jsbeautifyrc",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/view/App.view.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/webapp/controller/NotFound.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/controller/App.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/.env",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/.env.example",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/dist/Component-preload.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/dist/controller/App-dbg.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/dist/controller/App.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/user/dist/Component-preload.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/webapp/controller/Welcome.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/.library",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/manifest.json",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/dist/resources/almvb/utils/library-preload.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/dist/resources/almvb/utils/messagebundle.properties",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/manifest.json",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/.gitignore",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/.env",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/.env.example",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/package.json",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/.jsbeautifyrc",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/.env",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/.env.example",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/Gruntfile.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/mta.yaml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/gruntConfig.json",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/modules/Logger.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/modules/MessagePresenter.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/modules/ErrorHandler.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/messagebundle.properties",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/mta.yaml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/i18n/test_ru.properties",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/i18n/test.properties",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/i18n/test_Ru_Ru.properties",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/view/MainTable.fragment.xml",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/prettier.config.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/dist/controller/KundeDetailsPage.controller.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/user/Gruntfile.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/neo-app.json",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/gruntConfig.json",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/deployConfig.json",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/controls/HTMLoDataMessageParser.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/modules/LogMessage.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/library.js",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/.library",
+		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/main.js"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 107.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 41.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 316.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 239.0
+	},
+	"pinned_build_system": "",
+	"project": "ui5_multicomponents.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 508.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"shar",
+				"C:\\Users\\adanilin\\Documents\\Projects\\sharla.sublime-project"
+			],
+			[
+				"pum",
+				"C:\\Users\\adanilin\\Documents\\Projects\\pumba.sublime-project"
+			],
+			[
+				"ttp",
+				"C:\\Users\\adanilin\\Documents\\Projects\\ttp.sublime-project"
+			],
+			[
+				"sim",
+				"C:\\Users\\adanilin\\Documents\\Projects\\simba.sublime-project"
+			],
+			[
+				"temp",
+				"C:\\Users\\adanilin\\Documents\\Projects\\template.sublime-project"
+			],
+			[
+				"mont",
+				"C:\\Users\\adanilin\\Documents\\Projects\\monti.sublime-project"
+			],
+			[
+				"pumb",
+				"C:\\Users\\adanilin\\Documents\\Projects\\pumba.sublime-project"
+			],
+			[
+				"pu",
+				"C:\\Users\\adanilin\\Documents\\Projects\\pumba.sublime-project"
+			],
+			[
+				"",
+				"C:\\Users\\adanilin\\Documents\\Projects\\out_calendar.sublime-project"
+			]
+		],
+		"width": 382.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 323.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

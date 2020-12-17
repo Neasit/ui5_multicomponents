@@ -1,0 +1,14 @@
+<mvc:View
+  controllerName="app.parent.controller.StartPage"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+>
+  <MessagePage
+    showHeader="false"
+    title="Welcome!"
+    text="To The New Web Application"
+    icon="{sap-icon://document}"
+    description="Start work using the Side Menu"
+  >
+  </MessagePage>
+</mvc:View>
