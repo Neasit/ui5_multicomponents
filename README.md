@@ -1,10 +1,10 @@
 # Parent application
 
-Demonstrate example of multicomponents application with navigation via Router in child and parent.
+It is example of multicomponent application with navigation via Router in child and parent.
 There are 2 versions are available
 
  - for ui5 core 1.52 - with parent routes (see git tag `example_1`)
- - for ui5 core 1.65 - with loading child component using Router
+ - for ui5 core 1.65 - with loading child component using Router (see git tag `example_2`)
 
 # How to setup
 
