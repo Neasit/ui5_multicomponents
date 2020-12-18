@@ -77,7 +77,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/m/MessageToast', 'app/child/mo
      * @returns null
      */
     goToPage: function(pageName, oParams = {}, bReplace = false) {
-      this.oRouter.navTo(pageName, this.getOwnerComponent().createRouteArguments(oParams), !!bReplace);
+      this.oRouter.navTo(pageName, oParams, !!bReplace);
     },
 
     /** Show message toast with predefined parameters

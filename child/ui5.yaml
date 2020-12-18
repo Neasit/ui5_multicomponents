@@ -22,7 +22,7 @@ server:
       afterMiddleware: compression
       mountPath: /resources
       configuration:
-        rootPath: "C:/SAPUI5/1.52.38/resources"
+        rootPath: "C:/SAPUI5/1.65.16/resources"
     - name: ui5-middleware-proxy
       afterMiddleware: compression
       mountPath: /sap

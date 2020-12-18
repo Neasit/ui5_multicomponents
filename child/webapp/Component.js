@@ -7,7 +7,7 @@ sap.ui.define(['sap/ui/core/UIComponent'], function(UIComponent) {
       properties: {
         number: { type: 'string', defaultValue: null },
         showDetails: { type: 'boolean', defaultValue: false },
-        parentArguments: { type: 'object', defaultValue: {} },
+        standAlone: { type: 'boolean', defaultValue: true },
       },
       events: {
         insideNavigation: {
@@ -35,14 +35,14 @@ sap.ui.define(['sap/ui/core/UIComponent'], function(UIComponent) {
         this.bStandAlone = true;
       }
 
-      if (oData.parentArguments) {
-        this.setParentArguments(oData.parentArguments);
-      }
       if (oData.number) {
         this.setNumber(oData.number);
       }
       if (oData.showDetails) {
         this.setShowDetails(oData.showDetails);
+      }
+      if (typeof oData.standAlone === 'boolean') {
+        this.setStandAlone(oData.standAlone);
       }
 
       this.getRouter().initialize();
@@ -52,26 +52,21 @@ sap.ui.define(['sap/ui/core/UIComponent'], function(UIComponent) {
           .getRoute('StartPage')
           .attachPatternMatched(
             function() {
-              this.navigate();
+              if (this.getShowDetails()) {
+                this.navigateDetails();
+                this.setShowDetails(false);
+              }
             }.bind(this)
           );
       }
-
-      this.navigate();
-    },
-
-    createRouteArguments: function(oArguments) {
-      if (this.bStandAlone) {
-        return oArguments;
-      }
-      return $.extend(true, this.getParentArguments(), oArguments);
-    },
-
-    navigate: function() {
       if (this.getShowDetails()) {
-        this.getRouter().navTo('Details', this.createRouteArguments(this.getNumber()));
+        this.navigateDetails();
         this.setShowDetails(false);
       }
+    },
+
+    navigateDetails: function() {
+      this.getRouter().navTo('Details', { number: this.getNumber() });
     },
   });
 });

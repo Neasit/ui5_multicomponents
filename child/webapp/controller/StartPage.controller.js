@@ -10,7 +10,7 @@ sap.ui.define(['app/child/controller/BaseController'], function(BaseController) 
     handleRouteMatched: function(oEvent) {},
 
     onDetails: function() {
-      this.goToPage('Details', { page: 'Details' });
+      this.goToPage('Details', { number: 1000 });
       this.getOwnerComponent().fireInsideNavigation({ name: 'Details' });
     },
   });

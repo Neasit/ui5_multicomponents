@@ -45,7 +45,6 @@ sap.ui.define(['sap/ui/model/json/JSONModel'], function(JSONModel) {
                 route: 'Child',
                 arguments: {
                   page: 'Details',
-                  number: 1000,
                 },
                 title: this.oi18n.getText('childDetails'),
                 icon: 'sap-icon://account',
@@ -69,6 +68,10 @@ sap.ui.define(['sap/ui/model/json/JSONModel'], function(JSONModel) {
       );
       this.setProperty('/path', oData.stack);
       this.setProperty('/currentPosition', $.extend(true, {}, oData.object));
+    },
+
+    getCurrentPositionKey: function() {
+      return this.getProperty('/currentPosition/key');
     },
 
     findItemByKey: function(oData, sKey) {
