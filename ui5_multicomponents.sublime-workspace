@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"sta",
+				"standAlone"
+			],
+			[
+				"oA",
+				"oArgs"
+			],
+			[
+				"oE",
+				"oEvent"
+			],
+			[
+				"def",
+				"defaultValue"
+			],
+			[
+				"oC",
+				"oComponent"
+			],
+			[
 				"res",
 				"resultKLSDialog"
 			],
@@ -26,10 +46,6 @@
 			[
 				"getS",
 				"getSource"
-			],
-			[
-				"oE",
-				"oEvent"
 			],
 			[
 				"oe",
@@ -276,10 +292,6 @@
 				"timestamp"
 			],
 			[
-				"oC",
-				"oComponent"
-			],
-			[
 				"pre",
 				"preventTableBind"
 			],
@@ -428,10 +440,6 @@
 				"true"
 			],
 			[
-				"sta",
-				"stack"
-			],
-			[
 				"oRs",
 				"oResult"
 			],
@@ -443,6 +451,105 @@
 	},
 	"buffers":
 	[
+		{
+			"contents": "sap.ui.define(['sap/ui/core/UIComponent', 'app/parent/model/models', 'app/parent/model/AppModel'], function(UIComponent, models, AppModel) {\n  'use strict';\n\n  return UIComponent.extend('app.parent.Component', {\n    metadata: {\n      manifest: 'json',\n    },\n\n    /**\n     * The component is initialized by UI5 automatically during the startup of the app and\n     * calls the init method once.\n     * @public\n     * @override\n     */\n    init: function() {\n      UIComponent.prototype.init.apply(this, arguments);\n\n      this.setModel(models.createDeviceModel(), 'device');\n\n      this.setModel(new AppModel(this.getModel('i18n').getResourceBundle()), 'appModel');\n\n      this.getRouter().initialize();\n\n      this.oChildComponents = {};\n      this.getRouter()\n        .getViews()\n        .attachEvent('created', this.onViewCreated, this);\n      this.getRouter().attachBeforeRouteMatched(this.onBeforeAllMatched, this);\n    },\n\n    onBeforeAllMatched: function(oEvent) {\n      const sName = oEvent.getParameter('name');\n      const oArguments = oEvent.getParameter('arguments');\n      const oAppModel = this.getModel('appModel');\n      let oComponent;\n      switch (sName) {\n        case 'Child':\n          oComponent = this.getChildComponent('app.child');\n          break;\n        default:\n        // nothing\n      }\n      if (oComponent && oArguments.page === 'Details' && oAppModel.getCurrentPositionKey() === 'ChildDetails') {\n        oComponent.setShowDetails(true);\n        oComponent.setNumber(1001);\n      } else if (oArguments.page === 'Details' && !oComponent) {\n        this.bDetails = true;\n      }\n    },\n\n    onViewCreated: function(oEvent) {\n      let sType = oEvent.getParameter('type');\n      if (sType === 'Component') {\n        let oOptions = oEvent.getParameter('viewOptions');\n        let sName = oOptions ? oOptions.name : null;\n        if (sName) {\n          let oComponent = oEvent.getParameter('view');\n          this.setChildComponent(sName, oComponent);\n          switch (sName) {\n            case 'app.child':\n              oComponent.attachEvent('insideNavigation', this.onInsideNavigation.bind(this));\n              if (this.bDetails) {\n                this.bDetails = false;\n                oComponent.setNumber(1001);\n                oComponent.navigateDetails();\n              }\n              break;\n            default:\n            // oComponent.setLogger(this.getLogger());\n          }\n        }\n      }\n    },\n\n    setChildComponent: function(sName, oComponent) {\n      this.oChildComponents[sName] = oComponent;\n    },\n\n    getChildComponent: function(sName) {\n      return this.oChildComponents[sName];\n    },\n\n    onInsideNavigation: function(oEvent) {\n      const sPage = oEvent.getParameter('name');\n      this.getModel('appModel').setCurrentPosition(sPage === 'Main' ? 'Child' : 'ChildDetails');\n    },\n  });\n});\n",
+			"file": "parent/webapp/Component.js",
+			"file_size": 2855,
+			"file_write_time": 132527835500015930,
+			"settings":
+			{
+				"buffer_size": 2855,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "sap.ui.define(['app/child/controller/BaseController'], function(BaseController) {\n  'use strict';\n\n  return BaseController.extend('app.child.controller.Details', {\n    onInit: function() {\n      BaseController.prototype.init.apply(this, arguments);\n      this.oRouter.getRoute('Details').attachPatternMatched(this.handleRouteMatched, this);\n    },\n\n    handleRouteMatched: function(oEvent) {},\n\n    onBack: function() {\n      this.getOwnerComponent().fireInsideNavigation({ name: 'Main' });\n      this.goToPage('StartPage');\n    },\n  });\n});\n",
+			"file": "child/webapp/controller/Details.controller.js",
+			"file_size": 542,
+			"file_write_time": 132527835055849210,
+			"settings":
+			{
+				"buffer_size": 542,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "sap.ui.define(['sap/ui/core/UIComponent'], function(UIComponent) {\n  'use strict';\n\n  return UIComponent.extend('app.child.Component', {\n    metadata: {\n      manifest: 'json',\n      properties: {\n        number: { type: 'string', defaultValue: null },\n        showDetails: { type: 'boolean', defaultValue: false },\n        standAlone: { type: 'boolean', defaultValue: true },\n      },\n      events: {\n        insideNavigation: {\n          parameters: {\n            name: { type: 'string' },\n          },\n        },\n      },\n    },\n\n    /**\n     * The component is initialized by UI5 automatically during the startup of the app and\n     * calls the init method once.\n     * @public\n     * @override\n     */\n    init: function() {\n      UIComponent.prototype.init.apply(this, arguments);\n\n      var oData = this.getComponentData() || {};\n\n      if (sap.ui.core.Component.getOwnerComponentFor(this)) {\n        this.bStandAlone = false;\n      } else {\n        this.bStandAlone = true;\n      }\n\n      if (oData.number) {\n        this.setNumber(oData.number);\n      }\n      if (oData.showDetails) {\n        this.setShowDetails(oData.showDetails);\n      }\n      if (typeof oData.standAlone === 'boolean') {\n        this.setStandAlone(oData.standAlone);\n      }\n\n      this.getRouter().initialize();\n\n      if (!this.bStandAlone) {\n        this.getRouter()\n          .getRoute('StartPage')\n          .attachPatternMatched(\n            function() {\n              if (this.getShowDetails()) {\n                this.navigateDetails();\n                this.setShowDetails(false);\n              }\n            }.bind(this)\n          );\n      }\n      if (this.getShowDetails()) {\n        this.navigateDetails();\n        this.setShowDetails(false);\n      }\n    },\n\n    navigateDetails: function() {\n      this.getRouter().navTo('Details', { number: this.getNumber() });\n    },\n  });\n});\n",
+			"file": "child/webapp/Component.js",
+			"file_size": 1871,
+			"file_write_time": 132527824261395971,
+			"settings":
+			{
+				"buffer_size": 1871,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "{\n\t\"_version\": \"1.14.0\",\n\t\"sap.app\": {\n\t\t\"id\": \"app.parent\",\n\t\t\"type\": \"application\",\n\t\t\"i18n\": \"i18n/i18n.properties\",\n\t\t\"applicationVersion\": {\n\t\t\t\"version\": \"${version}\"\n\t\t},\n\t\t\"title\": \"{{appTitle}}\",\n\t\t\"description\": \"{{appDescription}}\",\n\t\t\"dataSources\": {\n\t\t\t\"oDataMain\": {\n\t\t\t\t\"uri\": \"/sap/opu/odata/sap/SERVER/\",\n\t\t\t\t\"type\": \"OData\",\n\t\t\t\t\"settings\": {\n\t\t\t\t\t\"odataVersion\": \"2.0\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\t\"sap.ui\": {\n\t\t\"technology\": \"UI5\",\n\t\t\"icons\": {\n\t\t\t\"icon\": \"\",\n\t\t\t\"favIcon\": \"\",\n\t\t\t\"phone\": \"\",\n\t\t\t\"phone@2\": \"\",\n\t\t\t\"tablet\": \"\",\n\t\t\t\"tablet@2\": \"\"\n\t\t},\n\t\t\"deviceTypes\": {\n\t\t\t\"desktop\": true,\n\t\t\t\"tablet\": true,\n\t\t\t\"phone\": true\n\t\t}\n\t},\n\t\"sap.ui5\": {\n\t\t\"rootView\": {\n\t\t\t\"viewName\": \"app.parent.view.App\",\n\t\t\t\"async\": true,\n\t\t\t\"id\": \"parent\",\n\t\t\t\"type\": \"XML\"\n\t\t},\n\t\t\"dependencies\": {\n\t\t\t\"minUI5Version\": \"1.62.0\",\n\t\t\t\"libs\": {\n\t\t\t\t\"sap.ui.core\": {},\n\t\t\t\t\"sap.m\": {},\n\t\t\t\t\"sap.ui.layout\": {},\n\t\t\t\t\"sap.ui.commons\": {},\n\t\t\t\t\"sap.f\": {},\n\t\t\t\t\"sap.ui.comp\": {},\n\t\t\t\t\"sap.tnt\": {}\n\t\t\t},\n\t\t\t\"components\": {\n\t\t\t\t\"app.child\": {\n\t\t\t\t\t\"lazy\": true\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t\"contentDensities\": {\n\t\t\t\"compact\": true,\n\t\t\t\"cozy\": true\n\t\t},\n\t\t\"models\": {\n\t\t\t\"i18n\": {\n\t\t\t\t\"type\": \"sap.ui.model.resource.ResourceModel\",\n\t\t\t\t\"settings\": {\n\t\t\t\t\t\"bundleName\": \"app.parent.i18n.i18n\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"\": {\n\t\t\t\t\"dataSource\": \"oDataMain\",\n\t\t\t\t\"settings\": {\n\t\t\t\t\t\"defaultCountMode\": \"Inline\",\n\t\t\t\t\t\"defaultBindingMode\": \"TwoWay\"\n\t\t\t\t},\n\t\t\t\t\"preload\": true\n\t\t\t}\n\t\t},\n\t\t\"resources\": {\n\t\t\t\"css\": [\n\t\t\t\t{\n\t\t\t\t\t\"uri\": \"css/style.css\"\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t\"routing\": {\n\t\t\t\"config\": {\n\t\t\t\t\"routerClass\": \"sap.m.routing.Router\",\n\t\t\t\t\"viewType\": \"XML\",\n\t\t\t\t\"viewPath\": \"app.parent.view\",\n\t\t\t\t\"controlId\": \"parent\",\n\t\t\t\t\"controlAggregation\": \"pages\",\n\t\t\t\t\"bypassed\": {\n\t\t\t\t\t\"target\": \"notFound\"\n\t\t\t\t},\n\t\t\t\t\"async\": true\n\t\t\t},\n\t\t\t\"routes\": [\n\t\t\t\t{\n\t\t\t\t\t\"pattern\": \"\",\n\t\t\t\t\t\"name\": \"StartPage\",\n\t\t\t\t\t\"target\": \"StartPage\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"pattern\": \"child/{page}\",\n\t\t\t\t\t\"name\": \"Child\",\n\t\t\t\t\t\"target\": { \"name\": \"Child\", \"prefix\": \"comp\" }\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"targets\": {\n\t\t\t\t\"StartPage\": {\n\t\t\t\t\t\"viewName\": \"StartPage\",\n\t\t\t\t\t\"viewId\": \"StartPage\"\n\t\t\t\t},\n\t\t\t\t\"Child\": {\n\t\t\t\t\t\"type\": \"Component\",\n\t\t\t\t\t\"path\": \"app\",\n\t\t\t\t\t\"name\": \"child\",\n\t\t\t\t\t\"options\": {\n\t\t\t\t\t\t\"componentData\": {\n\t\t\t\t\t\t\t\"standAlone\": false\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t\"containerOptions\": {}\n\t\t\t\t},\n\t\t\t\t\"notFound\": {\n\t\t\t\t\t\"viewName\": \"NotFound\",\n\t\t\t\t\t\"viewId\": \"notFound\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\n",
+			"file": "parent/webapp/manifest.json",
+			"file_size": 2413,
+			"file_write_time": 132527823525627419,
+			"settings":
+			{
+				"buffer_size": 2413,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 1207,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "parent/ui5.yaml",
+			"settings":
+			{
+				"buffer_size": 899,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "parent/README.md",
+			"settings":
+			{
+				"buffer_size": 1188,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "child/ui5.yaml",
+			"settings":
+			{
+				"buffer_size": 729,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "child/README.md",
+			"settings":
+			{
+				"buffer_size": 1232,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "/**\n * @module app.parent.model.AppModel\n * @description Model wich preset the state of application\n * @augments sap.ui.model.json.JSONModel\n * @todo Write the documentation.\n */\nsap.ui.define(['sap/ui/model/json/JSONModel'], function(JSONModel) {\n  'use strict';\n\n  return JSONModel.extend('app.parent.model.AppModel', {\n    constructor: function(oi18n) {\n      JSONModel.prototype.constructor.apply(this, arguments);\n      this.oi18n = oi18n;\n      this.initData();\n    },\n\n    initData: function() {\n      var oData = {\n        currentPosition: null,\n        path: [],\n        navigationItems: [\n          {\n            key: 'StartPage',\n            route: 'StartPage',\n            arguments: {},\n            title: this.oi18n.getText('welcome'),\n            icon: 'sap-icon://building',\n            enabled: true,\n            expanded: false,\n            items: [],\n          },\n          {\n            key: 'Child',\n            title: this.oi18n.getText('child'),\n            route: 'Child',\n            arguments: {\n              page: 'Main',\n            },\n            icon: 'sap-icon://employee',\n            enabled: true,\n            expanded: true,\n            items: [\n              {\n                key: 'ChildDetails',\n                route: 'Child',\n                arguments: {\n                  page: 'Details',\n                },\n                title: this.oi18n.getText('childDetails'),\n                icon: 'sap-icon://account',\n                enabled: true,\n                expanded: false,\n              },\n            ],\n          },\n        ],\n      };\n      this.setData(oData);\n    },\n\n    setCurrentPosition: function(sKey) {\n      var oData = this.findItemByKey(\n        {\n          key: 'root',\n          items: this.getProperty('/navigationItems'),\n        },\n        sKey\n      );\n      this.setProperty('/path', oData.stack);\n      this.setProperty('/currentPosition', $.extend(true, {}, oData.object));\n    },\n\n    getCurrentPositionKey: function() {\n      return this.getProperty('/currentPosition/key');\n    },\n\n    findItemByKey: function(oData, sKey) {\n      var oResult = {\n        stack: [],\n        object: null,\n      };\n      if (oData.key === sKey) {\n        oResult.object = oData;\n        return oResult;\n      }\n      if (oData.items && oData.items.length) {\n        oData.items.some(\n          function(item) {\n            var oRes = this.findItemByKey(item, sKey);\n            if (oRes.object) {\n              oResult.object = oRes.object;\n              oResult.stack = oRes.stack.concat(oResult.stack);\n              return true;\n            }\n            return false;\n          }.bind(this)\n        );\n      }\n\n      return oResult;\n    },\n  });\n});\n",
+			"file": "parent/webapp/model/AppModel.js",
+			"file_size": 2706,
+			"file_write_time": 132527832908942859,
+			"settings":
+			{
+				"buffer_size": 2706,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -456,10 +563,6 @@
 		"selected_items":
 		[
 			[
-				"pus",
-				"Git: Push Current Branch"
-			],
-			[
 				"comm",
 				"Git: Commit"
 			],
@@ -468,8 +571,16 @@
 				"Git: Add All"
 			],
 			[
-				"stat",
-				"Git: Status"
+				"pus",
+				"Git: Push Current Branch"
+			],
+			[
+				"tag",
+				"Git: New Tag"
+			],
+			[
+				"com",
+				"Git: Commit"
 			],
 			[
 				"che",
@@ -480,8 +591,8 @@
 				"Git: Checkout Current File"
 			],
 			[
-				"com",
-				"Git: Commit"
+				"stat",
+				"Git: Status"
 			],
 			[
 				"push",
@@ -596,10 +707,49 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents"
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent"
 	],
 	"file_history":
 	[
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/webapp/Component.js",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/webapp/controller/BaseController.js",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/webapp/controller/StartPage.controller.js",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/webapp/controller/Details.controller.js",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/ui5.yaml",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/webapp/manifest.json",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/webapp/controller/ChildContent.controller.js",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/webapp/manifest.json",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/ui5.yaml",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/webapp/Component.js",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/webapp/model/AppModel.js",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/webapp/controller/NotFound.controller.js",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/webapp/controller/App.controller.js",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/webapp/view/Details.view.xml",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/webapp/view/StartPage.view.xml",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/LICENSE",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/webapp/i18n/i18n.properties",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/webapp/index.html",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/webapp/index.html",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/webapp/view/App.view.xml",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/package.json",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/webapp/controller/App.controller.js",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/webapp/main.js",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/child/webapp/view/NotFound.view.xml",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/webapp/view/ChildContent.view.xml",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/webapp/i18n/i18n.properties",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/.env",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/webapp/controller/BaseController.js",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/webapp/view/App.view.xml",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/webapp/controller/NotFound.controller.js",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/webapp/controller/StartPage.controller.js",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/webapp/view/StartPage.view.xml",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/webapp/main.js",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/Gruntfile.js",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/.eslintrc",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/webapp/view/NotFound.view.xml",
+		"/C/Users/adanilin/Documents/Projects/my/ui5_multicomponents/parent/package.json",
 		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/modules/SearchHelpDialog.js",
 		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/controller/StandOrtDetails.controller.js",
 		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/controller/StandOrtList.controller.js",
@@ -690,44 +840,7 @@
 		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/.env.example",
 		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/dist/Component-preload.js",
 		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/dist/controller/App-dbg.controller.js",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/dist/controller/App.controller.js",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/user/dist/Component-preload.js",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/webapp/controller/Welcome.controller.js",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/.library",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/almvb/utils/manifest.json",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/dist/resources/almvb/utils/library-preload.js",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/dist/resources/almvb/utils/messagebundle.properties",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/manifest.json",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/.gitignore",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/.env",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/.env.example",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/package.json",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/.jsbeautifyrc",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/.env",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/.env.example",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/Gruntfile.js",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/mta.yaml",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/gruntConfig.json",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/modules/Logger.js",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/modules/MessagePresenter.js",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/modules/ErrorHandler.js",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/messagebundle.properties",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/mta.yaml",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/i18n/test_ru.properties",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/i18n/test.properties",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/i18n/test_Ru_Ru.properties",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/view/MainTable.fragment.xml",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/prettier.config.js",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/dist/controller/KundeDetailsPage.controller.js",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/user/Gruntfile.js",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/neo-app.json",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/gruntConfig.json",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/deployConfig.json",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/controls/HTMLoDataMessageParser.js",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/modules/LogMessage.js",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/library.js",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/utils/src/.library",
-		"/C/Users/adanilin/Documents/Projects/source/almvb/kunde/webapp/main.js"
+		"/C/Users/adanilin/Documents/Projects/source/almvb/web4al/dist/controller/App.controller.js"
 	],
 	"find":
 	{
@@ -738,6 +851,9 @@
 		"height": 107.0,
 		"where_history":
 		[
+			"C:\\Users\\adanilin\\Documents\\Projects\\my\\ui5_multicomponents\\child\\webapp",
+			"C:\\Users\\adanilin\\Documents\\Projects\\my\\ui5_multicomponents\\parent\\webapp",
+			"C:\\Users\\adanilin\\Documents\\Projects\\my\\ui5_multicomponents\\parent"
 		]
 	},
 	"find_state":
@@ -745,6 +861,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"getShowDetails",
+			"getShowDetails ",
+			"Details",
+			"navProps",
+			"app/example",
+			"app.example",
+			"routeMatched",
+			"app/example",
+			"app.example"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -752,6 +877,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"app/child",
+			"app.child",
+			"app/parent",
+			"app.parent"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -762,8 +891,302 @@
 	"groups":
 	[
 		{
+			"selected": 4,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "parent/webapp/Component.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2855,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2446,
+								2446
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 648.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "child/webapp/controller/Details.controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 542,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								524,
+								524
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "child/webapp/Component.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1871,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1520,
+								1520
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 432.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "parent/webapp/manifest.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2413,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2392,
+								2392
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1728.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1207,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1207,
+								1207
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MarkdownEditing/Markdown (Standard).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "parent/ui5.yaml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 899,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "parent/README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1188,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1088,
+								1088
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MarkdownEditing/Markdown (Standard).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "child/ui5.yaml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 729,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "child/README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1232,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								314,
+								224
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MarkdownEditing/Markdown (Standard).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "parent/webapp/model/AppModel.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2706,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								996,
+								996
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				}
 			]
 		}
 	],

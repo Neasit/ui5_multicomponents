@@ -39,7 +39,7 @@
 		"rootView": {
 			"viewName": "app.child.view.App",
 			"async": true,
-			"id": "web4al",
+			"id": "child",
 			"type": "XML"
 		},
 		"dependencies": {

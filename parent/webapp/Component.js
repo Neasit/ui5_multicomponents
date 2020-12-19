@@ -31,7 +31,6 @@ sap.ui.define(['sap/ui/core/UIComponent', 'app/parent/model/models', 'app/parent
     onBeforeAllMatched: function(oEvent) {
       const sName = oEvent.getParameter('name');
       const oArguments = oEvent.getParameter('arguments');
-      const oAppModel = this.getModel('appModel');
       let oComponent;
       switch (sName) {
         case 'Child':
@@ -40,7 +39,7 @@ sap.ui.define(['sap/ui/core/UIComponent', 'app/parent/model/models', 'app/parent
         default:
         // nothing
       }
-      if (oComponent && oArguments.page === 'Details' && oAppModel.getCurrentPositionKey() === 'ChildDetails') {
+      if (oComponent && oArguments.page === 'Details') {
         oComponent.setShowDetails(true);
         oComponent.setNumber(1001);
       } else if (oArguments.page === 'Details' && !oComponent) {
